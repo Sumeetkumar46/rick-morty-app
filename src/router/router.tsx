@@ -7,7 +7,6 @@ import {
 import Home from '../pages/Home';
 import Details from '../pages/Details';
 
-// Your existing root route
 const rootRoute = createRootRoute({
   component: () => (
     <div>
@@ -26,7 +25,6 @@ const rootRoute = createRootRoute({
   ),
 });
 
-// ✅ Make sure this is present
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
@@ -39,13 +37,14 @@ const detailsRoute = createRoute({
   component: Details,
 });
 
-// ✅ Add routes to tree
 const routeTree = rootRoute.addChildren([indexRoute, detailsRoute]);
 
-// ✅ Export router
-export const router = createRouter({ routeTree });
+// ✅ Add basepath for GitHub Pages deployment
+export const router = createRouter({
+  routeTree,
+  basepath: '/rick-morty-app', // 👈 Required for GitHub Pages
+});
 
-// Required for type inference
 declare module '@tanstack/react-router' {
   interface Register {
     router: typeof router;

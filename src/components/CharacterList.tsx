@@ -26,7 +26,7 @@ export const CharacterList = () => {
 
   return (
     <div className="character-list-wrapper">
-      <h1 className="character-title">Rick & Morty Characters</h1>
+      <h1 className="character-title">git commit -m "Initial commit"cls</h1>
 
       <div className="character-grid">
         {data.results.map((char) => (
